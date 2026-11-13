@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="El Buen Sazón, comedor en Tulcán. Consulta el menú del día y realiza tu pedido.">
+  <title>El Buen Sazón | Comedor en Tulcán</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="El Buen Sazón, inicio">
+      <img src="logo.png" alt="Logo de El Buen Sazón">
+      <span class="brand-copy"><strong>El Buen Sazón</strong><small>COMEDOR</small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <nav id="mainNav">
+      <a href="#inicio">Inicio</a>
+      <a href="#menu">Menú del día</a>
+      <a href="#especiales">Platos especiales</a>
+      <a href="#ubicacion">Ubicación</a>
+      <button class="nav-cart" id="openCartNav">Mi pedido <span id="navCartCount">0</span></button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-content">
+        <span class="eyebrow">SABOR CASERO TODOS LOS DÍAS</span>
+        <h1>Un buen plato,<br><em>un buen momento.</em></h1>
+        <p>Disfruta de almuerzos variados y platos especiales preparados con mucho sabor.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#menu">Ver menú del día <span>→</span></a>
+          <a class="btn btn-light" href="#especiales">Conocer especiales</a>
+        </div>
+        <div class="hero-meta">
+          <span>📍 Tulcán, Carchi</span>
+          <span>🕗 Todos los días · 8:00 a. m. – 4:00 p. m.</span>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Presentación de comida">
+        <div class="hero-circle"></div>
+        <div class="hero-card">
+          <span class="plate-icon">🍽️</span>
+          <strong>Hecho para<br>disfrutar</strong>
+          <small>Tradición y sabor en cada plato.</small>
+        </div>
+        <span class="floating floating-one">♥</span>
+        <span class="floating floating-two">¡Qué rico!</span>
+      </div>
+    </section>
+
+    <section class="quick-info">
+      <div><span class="info-icon">🍲</span><p><strong>Almuerzos diarios</strong><small>Una opción diferente cada día</small></p></div>
+      <div><span class="info-icon">🥡</span><p><strong>Para servir o llevar</strong><small>Tú eliges cómo disfrutarlo</small></p></div>
+      <div><span class="info-icon">📍</span><p><strong>Estamos en Tulcán</strong><small>Calle Sucre y 9 de Octubre</small></p></div>
+    </section>
+
+    <section class="section menu-section" id="menu">
+      <div class="section-heading">
+        <div><span class="eyebrow">ALMUERZOS</span><h2>El menú de la semana</h2></div>
+        <p>Selecciona el día para descubrir qué tenemos preparado.</p>
+      </div>
+      <div class="day-tabs" id="dayTabs" role="tablist" aria-label="Días de la semana"></div>
+      <div class="daily-menu" id="dailyMenu" aria-live="polite"></div>
+      <div class="price-note">
+        <div><strong>Almuerzo completo <b>$3,00</b></strong><span>Entrada + segundo. La bebida se agrega por separado.</span></div>
+        <div><strong>Para llevar <b>+$0,25</b></strong><span>Se suma el valor de la bandeja al pedido.</span></div>
+      </div>
+    </section>
+
+    <section class="special-section" id="especiales">
+      <div class="section section-heading">
+        <div><span class="eyebrow">PARA ANTOJARSE</span><h2>Nuestros platos especiales</h2></div>
+        <p>Opciones deliciosas para cuando quieres algo diferente.</p>
+      </div>
+      <div class="special-grid" id="specialGrid"></div>
+    </section>
+
+    <section class="extras-section section" id="extras">
+      <div class="section-heading">
+        <div><span class="eyebrow">COMPLEMENTA TU PEDIDO</span><h2>Bebidas y acompañantes</h2></div>
+        <p>Agrega algo más para disfrutar tu comida.</p>
+      </div>
+      <div class="extras-grid" id="extrasGrid"></div>
+    </section>
+
+    <section class="how-section">
+      <div class="how-copy">
+        <span class="eyebrow">FÁCIL Y RÁPIDO</span>
+        <h2>Tu pedido, a tu manera.</h2>
+        <p>Elige tus platos, agrégalos al carrito y envíanos tu pedido por WhatsApp. ¡Así de sencillo!</p>
+      </div>
+      <div class="steps">
+        <div><b>01</b><span>Escoge el día y tus platos favoritos.</span></div>
+        <div><b>02</b><span>Revisa las cantidades y el total en tu carrito.</span></div>
+        <div><b>03</b><span>Envía tu pedido por WhatsApp.</span></div>
+      </div>
+    </section>
+
+    <section class="location-section section" id="ubicacion">
+      <div>
+        <span class="eyebrow">VEN A VISITARNOS</span>
+        <h2>¡Te esperamos!</h2>
+        <p>Encuéntranos en el centro de Tulcán y disfruta del sabor de El Buen Sazón.</p>
+        <div class="location-details">
+          <p><span>📍</span><span><strong>Dirección</strong><br>Calle Sucre y 9 de Octubre<br>Tulcán, Carchi, Ecuador</span></p>
+          <p><span>🕗</span><span><strong>Horario de atención</strong><br>Todos los días, de 8:00 a. m. a 4:00 p. m.</span></p>
+          <p><span>📞</span><span><strong>Teléfono / WhatsApp</strong><br>097 926 9385</span></p>
+        </div>
+        <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Calle+Sucre+y+9+de+Octubre%2C+Tulcan%2C+Carchi%2C+Ecuador">Cómo llegar ↗</a>
+      </div>
+      <div class="map-card">
+        <div class="map-pin">📍</div>
+        <strong>El Buen Sazón</strong>
+        <span>Calle Sucre y 9 de Octubre</span>
+        <small>Tulcán · Carchi · Ecuador</small>
+        <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Calle+Sucre+y+9+de+Octubre%2C+Tulcan%2C+Carchi%2C+Ecuador">Abrir en Google Maps →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="footer-brand" href="#inicio">El Buen Sazón <small>COMEDOR</small></a>
+    <p>Hecho con cariño y mucho sabor. · Tulcán, Ecuador.</p>
+    <span>© <span id="year"></span> El Buen Sazón</span>
+  </footer>
+
+  <button class="cart-fab" id="openCartFab" aria-label="Abrir carrito">🛒 <span id="fabCartCount">0</span></button>
+
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Carrito de pedidos" aria-hidden="true">
+    <div class="cart-header"><div><span class="eyebrow">TU SELECCIÓN</span><h2>Mi pedido</h2></div><button id="closeCart" class="close-cart" aria-label="Cerrar carrito">×</button></div>
+    <div class="order-type">
+      <span>¿Cómo deseas tu pedido?</span>
+      <label><input type="radio" name="orderType" value="servir" checked> Para servir</label>
+      <label><input type="radio" name="orderType" value="llevar"> Para llevar</label>
+    </div>
+    <div class="cart-items" id="cartItems"><div class="empty-cart">Tu carrito está vacío.<br><span>Agrega algo rico del menú. 🍽️</span></div></div>
+    <div class="cart-summary">
+      <div><span>Subtotal</span><strong id="subtotal">$0,00</strong></div>
+      <div><span id="packagingLabel">Bandeja</span><strong id="packaging">$0,00</strong></div>
+      <div class="total-row"><span>Total</span><strong id="total">$0,00</strong></div>
+      <button class="btn btn-primary checkout-btn" id="checkoutBtn">Enviar pedido por WhatsApp ↗</button>
+      <small>El pedido se enviará para confirmar disponibilidad y forma de entrega.</small>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status">Agregado a tu pedido ✓</div>
+  <script src="script.js"></script>
+</body>
+</html>
