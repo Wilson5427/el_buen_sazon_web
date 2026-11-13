@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - ALAYA</title>
+    <!-- Enlace a Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <!-- Vinculación con tu hoja de estilos CSS -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <!-- Encabezado con navegación -->
+    <header>
+        <div class="logo-container">
+            <div>
+                <h1>ALAYA</h1>
+                <span class="slogan">La razón de florecer</span>[cite: 2, 6]
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><button class="cart-btn" onclick="toggleCart()">🛒 Carrito (<span id="cart-count">0</span>)</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenido Principal / Catálogo -->
+    <div class="container" id="catalogo">
+        <h2 class="section-title">Catálogo de Arreglos Florales</h2>
+        
+        <div class="catalog-grid">
+            
+            <!-- Producto 1 -->
+            <div class="flower-card">
+                <div class="flower-img">🌼</div>
+                <div class="flower-info">
+                    <h3>Atardecer de Margaritas</h3>
+                    <p>Hermoso ramo fresco con margaritas vibrantes y detalles campestres.</p>
+                    <div class="price">$25.00</div>
+                    <button class="btn-add" onclick="addToCart('Atardecer de Margaritas', 25.00)">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="flower-card">
+                <div class="flower-img">🌷</div>
+                <div class="flower-info">
+                    <h3>Esencia de Primavera</h3>
+                    <p>Combinación elegante seleccionada bajo los estándares orgánicos de la florería.</p>
+                    <div class="price">$35.00</div>
+                    <button class="btn-add" onclick="addToCart('Esencia de Primavera', 35.00)">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="flower-card">
+                <div class="flower-img">🌻</div>
+                <div class="flower-info">
+                    <h3>Jardín Radiante</h3>
+                    <p>Arreglo floral luminoso ideal para iluminar y armonizar cualquier espacio.</p>
+                    <div class="price">$30.00</div>
+                    <button class="btn-add" onclick="addToCart('Jardín Radiante', 30.00)">Añadir al Carrito</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Sección Interactiva: Tiempo de Entrega -->
+        <div class="delivery-section" id="envios">
+            <h3>🚚 Consulta el Tiempo de Entrega</h3>
+            <p>Ingresa tu zona o sector para calcular el tiempo aproximado en que llegará tu pedido:</p>
+            <br>
+            <input type="text" id="zone-input" class="delivery-input" placeholder="Ej. Centro, Norte, Sur...">
+            <button class="btn-principal" onclick="calcularTiempo()">Calcular</button>
+            <div id="delivery-result"></div>
+        </div>
+    </div>
+
+    <!-- Carrito de Compras (Modal Desplegable) -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3>Tu Carrito ALAYA</h3>
+            <button class="close-cart" onclick="toggleCart()">×</button>
+        </div>
+        <div class="cart-items" id="cartItemsList">
+            <p style="text-align: center; color: #777; margin-top: 20px;">Tu carrito está vacío.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="total-price">Total: $<span id="cartTotal">0.00</span></div>
+            <button class="btn-principal" style="width: 100%;" onclick="checkout()">Realizar Pedido</button>
+        </div>
+    </div>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2026 ALAYA - La razón de florecer[cite: 2, 6]. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Lógica JavaScript para el Carrito y Tiempos de Entrega -->
+    <script>
+        let cart = [];
+
+        function toggleCart() {
+            const modal = document.getElementById('cartModal');
+            modal.classList.toggle('open');
+        }
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCartUI();
+            alert(`¡"${name}" se ha añadido a tu carrito! 🌸`);
+        }
+
+        function updateCartUI() {
+            const cartList = document.getElementById('cartItemsList');
+            const cartCount = document.getElementById('cartCount');
+            const cartTotal = document.getElementById('cartTotal');
+
+            cartCount.textContent = cart.length;
+
+            if (cart.length === 0) {
+                cartList.innerHTML = '<p style="text-align: center; color: #777; margin-top: 20px;">Tu carrito está vacío.</p>';
+                cartTotal.textContent = '0.00';
+                return;
+            }
+
+            let html = '';
+            let total = 0;
+            cart.forEach((item, index) => {
+                total += item.price;
+                html += `
+                    <div class="cart-item">
+                        <div>
+                            <strong>${item.name}</strong><br>
+                            <small>$${item.price.toFixed(2)}</small>
+                        </div>
+                        <button onclick="removeItem(${index})" style="background:none; border:none; color: red; cursor:pointer;">Eliminar</button>
+                    </div>
+                `;
+            });
+
+            cartList.innerHTML = html;
+            cartTotal.textContent = total.toFixed(2);
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function calcularTiempo() {
+            const zona = document.getElementById('zone-input').value.trim();
+            const resultDiv = document.getElementById('delivery-result');
+
+            if (zona === "") {
+                resultDiv.innerHTML = "Por favor, ingresa una zona o sector válido.";
+                return;
+            }
+
+            const tiempos = [30, 40, 45, 50];
+            const tiempoAleatorio = tiempos[Math.floor(Math.random() * tiempos.length)];
+
+            resultDiv.innerHTML = `📦 ¡Listo! Para la zona de <strong>${zona}</strong>, tu pedido de flores frescas llegará en aproximadamente <strong>${tiempoAleatorio} minutos</strong>.`;
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert("Tu carrito está vacío. Agrega algunos arreglos antes de proceder.");
+                return;
+            }
+            alert("¡Pedido realizado con éxito en ALAYA! Prepararemos tus flores con la mayor frescura y cuidado. 🌸");
+            cart = [];
+            updateCartUI();
+            toggleCart();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALAYA - La razón de florecer</title>
+    <!-- Enlace a Google Fonts para una tipografía cálida y moderna -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <!-- Enlace a la hoja de estilos CSS -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <!-- Encabezado Principal -->
+    <header>
+        <div class="logo-container">
+            <div>
+                <h1>ALAYA</h1>
+                <span class="slogan">La razón de florecer</span>[cite: 2, 6]
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="envios.html">Envíos</a></li>
+                <li><button class="cart-btn" onclick="toggleCart()">🛒 Carrito (<span id="cart-count">0</span>)</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección de Bienvenida (Hero) -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h2>Bienvenidos a ALAYA</h2>
+            <p>La esencia de la naturalidad, la frescura y la delicadeza en cada arreglo floral[cite: 5]. Descubre la razón de florecer[cite: 6].</p>
+            <a href="catalogo.html"><button class="btn-principal">Explorar Catálogo</button></a>
+        </div>
+    </section>
+
+    <!-- Sección Destacada / Filosofía de la Marca -->
+    <section class="container philosophy-section">
+        <h2 class="section-title">Nuestra Esencia</h2>
+        <div class="philosophy-grid">
+            <div class="card-info">
+                <h3>🌸 Frescura Natural</h3>
+                <p>Seleccionamos cuidadosamente cada margarita[cite: 5] y flor para garantizar arreglos llenos de vida y color.</p>
+            </div>
+            <div class="card-info">
+                <h3>💖 Detalles Únicos</h3>
+                <p>Cada diseño transmite cercanía, calidez y un estilo totalmente unificado inspirado en nuestra identidad[cite: 2, 5].</p>
+            </div>
+            <div class="card-info">
+                <h3>🚚 Entregas Rápidas</h3>
+                <p>Llevamos tus emociones y sorpresas directamente a su destino con nuestro sistema de reparto eficiente.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2026 ALAYA - La razón de florecer[cite: 2, 6]. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Script básico para interactividad del carrito -->
+    <script>
+        let cart = [];
+
+        function toggleCart() {
+            alert("Puedes ver los detalles completos de tu carrito y hacer pedidos en la sección de catálogo.");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envíos y Entregas - ALAYA</title>
+    <!-- Enlace a Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <!-- Vinculación con tu hoja de estilos CSS -->
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        .delivery-container {
+            max-width: 800px;
+            margin: 3rem auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 2px solid var(--color-crema);
+        }
+
+        .delivery-container h2 {
+            color: var(--color-fucsia);
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .delivery-container p {
+            text-align: center;
+            color: var(--color-texto);
+            margin-bottom: 30px;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .step-card {
+            background-color: #fdfbf7;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--color-verde-claro);
+            text-align: center;
+        }
+
+        .step-card h4 {
+            color: var(--color-verde);
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado con navegación -->
+    <header>
+        <div class="logo-container">
+            <div>
+                <h1>ALAYA</h1>
+                <span class="slogan">La razón de florecer</span>[cite: 2, 6]
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="envios.html">Envíos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenido Principal de Envíos -->
+    <div class="container">
+        <div class="delivery-container">
+            <h2>Información y Tiempos de Entrega</h2>
+            <p>En ALAYA cuidamos cada detalle para que tus arreglos florales lleguen frescos, intactos y a tiempo a su destino[cite: 5].</p>
+
+            <!-- Pasos del servicio de entrega -->
+            <div class="steps-grid">
+                <div class="step-card">
+                    <h4>🌸 Preparación Fresca</h4>
+                    <p>Armamos tu pedido al instante para garantizar la máxima durabilidad de las flores.</p>
+                </div>
+                <div class="step-card">
+                    <h4>🚚 Reparto Cuidado</h4>
+                    <p>Transportamos tus arreglos en unidades equipadas para mantener su forma y frescura.</p>
+                </div>
+                <div class="step-card">
+                    <h4>⏱️ Puntualidad</h4>
+                    <p>Garantizamos entregas rápidas adaptadas a tus horarios y sorpresas especiales.</p>
+                </div>
+            </div>
+
+            <!-- Calculador interactivo de envíos -->
+            <div class="delivery-section" style="margin-top: 0;">
+                <h3>📦 Consulta tu Tiempo de Entrega</h3>
+                <p>Ingresa tu zona o sector de destino para calcular el tiempo aproximado en que llegará tu pedido:</p>
+                <br>
+                <input type="text" id="zone-input" class="delivery-input" placeholder="Ej. Centro, Norte, Sur...">
+                <button class="btn-principal" onclick="calcularTiempoEnvio()">Consultar</button>
+                <div id="delivery-result"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2026 ALAYA - La razón de florecer[cite: 2, 6]. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Script de cálculo de envíos -->
+    <script>
+        function calcularTiempoEnvio() {
+            const zona = document.getElementById('zone-input').value.trim();
+            const resultDiv = document.getElementById('delivery-result');
+
+            if (zona === "") {
+                resultDiv.innerHTML = "Por favor, ingresa una zona o sector válido.";
+                return;
+            }
+
+            const tiempos = [25, 35, 45, 50, 60];
+            const tiempoAleatorio = tiempos[Math.floor(Math.random() * tiempos.length)];
+
+            resultDiv.innerHTML = `📦 ¡Perfecto! Para el sector de <strong>${zona}</strong>, el tiempo estimado de entrega de tus flores frescas es de aproximadamente <strong>${tiempoAleatorio} minutos</strong>.`;
+        }
+    </script>
+</body>
+</html>
